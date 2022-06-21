@@ -119,11 +119,9 @@
 			// 7. sort Exercise
 			// Sort the people alphabetically by last name
 			const order = people.sort(function (lastName, firstName) {
-				const parts = lastName.split(', ');
-        console.log(parts);
+				const parts = lastName.split(", ");
+				console.log(parts);
 			});
-
-			
 
 			// 8. Reduce Exercise
 			// Sum up the instances of each of these
@@ -143,6 +141,14 @@
 				"car",
 				"truck",
 			];
+			const transportation = data.reduce(function (obj, item) {
+				if (!obj[item]) {
+					obj[item] = 0;
+				}
+				obj[item]++;
+				return obj;
+			}, {});
+			console.log(transportation);
 		</script>
 	</body>
 </html>
