@@ -33,8 +33,7 @@
 				min-height: 100vh;
 				overflow: hidden;
 				display: flex;
-        cursor: pointer;
-
+				cursor: pointer;
 			}
 
 			.panel {
@@ -79,33 +78,35 @@
 				width: 100%;
 				transition: transform 0.5s;
 				flex: 1 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
-
+			.panel:hover {
+				border: 1px solid white;
+			}
 			.panel p {
 				text-transform: uppercase;
 				font-family: "Amatic SC", cursive;
 				text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
 				font-size: 2em;
 			}
-      /* .panel  > *:first-child{
+			/* .panel  > *:first-child{
         transform: translateY(-100%);
       } */
 
-      .panel p:first-child{
-        transform: translateY(-100%);
-      }
-      .panel.open-active p:first-child{
-        transform: translateY(0);
-      }
-      .panel p:last-child{
-        transform: translateY(100%);
-      }
-      .panel.open-active p:last-child{
-        transform: translateY(0);
-      }
+			.panel p:first-child {
+				transform: translateY(-100%);
+			}
+			.panel.open-active p:first-child {
+				transform: translateY(0);
+			}
+			.panel p:last-child {
+				transform: translateY(100%);
+			}
+			.panel.open-active p:last-child {
+				transform: translateY(0);
+			}
 
 			.panel p:nth-child(2) {
 				font-size: 4em;
@@ -113,7 +114,7 @@
 
 			.panel.open {
 				font-size: 40px;
-        flex:5;
+				flex: 5;
 			}
 		</style>
 
@@ -146,21 +147,23 @@
 		</div>
 
 		<script>
-    const panels = document.querySelectorAll(".panel");
+			const panels = document.querySelectorAll(".panel");
 
-    function toggleOpen(){
-      this.classList.toggle("open");
-      console.log('hello');
-    }
-    function toggleActive(e){
-      console.log(e.propertyName);
-      if (e.propertyName.includes("flex)")) {
-        this.classList.toggle("open-active")
-      }
-    }
+			function toggleOpen() {
+				this.classList.toggle("open");
+				console.log("hello");
+			}
+			function toggleActive(e) {
+				if (e.propertyName.includes("flex")) {
+					this.classList.toggle("open-active");
+					console.log(e.propertyName);
+				}
+			}
 
-    panels.forEach(panel => panel.addEventListener("click", toggleOpen));
-    panels.forEach(panel => panel.addEventListener("transitionend", toggleActive));
-    </script>
+			panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+			panels.forEach((panel) =>
+				panel.addEventListener("transitionend", toggleActive)
+			);
+		</script>
 	</body>
 </html>
