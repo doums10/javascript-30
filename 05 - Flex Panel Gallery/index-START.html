@@ -33,6 +33,8 @@
 				min-height: 100vh;
 				overflow: hidden;
 				display: flex;
+        cursor: pointer;
+
 			}
 
 			.panel {
@@ -95,8 +97,14 @@
       .panel p:first-child{
         transform: translateY(-100%);
       }
+      .panel.open-active p:first-child{
+        transform: translateY(0);
+      }
       .panel p:last-child{
         transform: translateY(100%);
+      }
+      .panel.open-active p:last-child{
+        transform: translateY(0);
       }
 
 			.panel p:nth-child(2) {
@@ -105,6 +113,7 @@
 
 			.panel.open {
 				font-size: 40px;
+        flex:5;
 			}
 		</style>
 
@@ -136,6 +145,15 @@
 			</div>
 		</div>
 
-		<script></script>
+		<script>
+    const panels = document.querySelectorAll(".panel");
+
+    function toggleOpen(){
+      this.classList.toggle("open");
+      console.log('hello');
+    }
+
+    panels.forEach(panel => panel.addEventListener("click", toggleOpen));
+    </script>
 	</body>
 </html>
