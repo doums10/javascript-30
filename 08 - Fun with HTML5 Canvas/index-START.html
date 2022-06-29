@@ -17,7 +17,7 @@
 			ctx.strokeStyle = "#BADA55";
 			ctx.lineJoin = "round";
 			ctx.lineCap = "round";
-      ctx.lineWidth = 100;
+      
 
 			let isDrawing = false;
 			let lastX = 0;
@@ -41,7 +41,15 @@
         if (hue >= 360) {
          hue = 0; 
         }
-        ctx.lineWidth++;
+        if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+          direction = !direction
+        }
+        if (direction) {
+          ctx.lineWidth++;
+        } else {
+          ctx.lineWidth--;
+        }
+        
 			}
 
 			canvas.addEventListener("mousemove", draw);
