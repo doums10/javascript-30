@@ -43,7 +43,10 @@ video.currentTime = scrubTime;
 console.log(e);
 }
 
-function
+function openFullscreen(){
+	if(video.requestFullscreen){
+		video.requestFullscreen();
+}};
 
 
 // Hook up the event listeners
