@@ -73,6 +73,10 @@ body {
   flex-wrap: wrap;
   background: rgba(0,0,0,0.1);
 }
+img{
+  width:12px;
+  height:12px;
+}
 
 .player:hover .player__controls {
   transform: translateY(0);
